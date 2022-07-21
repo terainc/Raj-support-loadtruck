@@ -18,6 +18,9 @@ describe("sc",()=>{
         var i = 0;
         for (let [key, value] of dataMap.entries()) {
           i= i+1
+          if (i==50){
+            break;
+          }
           browser.url(key);
           
           let ele_company_details = $(`(((//tbody)[1]//tr)[2]/td)[2]`);
@@ -86,9 +89,7 @@ describe("sc",()=>{
           var jsonobj = Object.fromEntries(jsonmap);
           var jsonobj_str = JSON.stringify(jsonobj)
           detailsMap.set(key,jsonobj_str) 
-         if (i===50){
-           break;
-         }
+        
         }
         var detailsMap_json = Object.fromEntries(detailsMap);
         var detailsMap_json_str = JSON.stringify(detailsMap_json);
